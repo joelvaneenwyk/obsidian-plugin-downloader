@@ -4,6 +4,20 @@ import { download, extract } from "gitly";
 import cliProgress from "cli-progress";
 import ora from "ora";
 
+import { spawn, Pool, Worker } from "threads"
+
+/** Pool event type. Specifies the type of each `PoolEvent`. */
+export enum PoolEventType {
+  initialized = "initialized",
+  taskCanceled = "taskCanceled",
+  taskCompleted = "taskCompleted",
+  taskFailed = "taskFailed",
+  taskQueued = "taskQueued",
+  taskQueueDrained = "taskQueueDrained",
+  taskStart = "taskStart",
+  terminated = "terminated"
+}
+
 const URLS = {
   COMMUNITY_PLUGINS:
     "https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json",
@@ -79,4 +93,38 @@ async function getPluginsRepos() {
   return pluginsRepos;
 }
 
-getPluginsRepos().then((repos) => downloadRepositories(repos));
+export default async function main() {
+  const events: Pool.Event[] = []
+  let spawnCalled = 0
+  let taskFnCalled = 0
+
+  const spawnWorker = () => {
+    spawnCalled++
+    return spawn<() => string>(new Worker("./worker"))
+  }
+  const pool = Pool(spawnWorker, 20)
+  pool.events().subscribe(event => events.push(event))
+
+  // Just to make sure all worker threads are initialized before starting to queue
+  // This is only necessary for testing to make sure that this is the first event recorded
+  await new Promise((resolve, reject) => {
+    pool.events()
+      .filter(event => event.type === PoolEventType.initialized)
+      .subscribe(resolve, reject)
+  })
+
+  await pool.queue(async workerTask => {
+    taskFnCalled++
+    const result = await workerTask()
+    console.log(result);
+    return result
+  })
+
+  await pool.terminate()
+
+  return;
+
+  getPluginsRepos().then((repos) => downloadRepositories(repos));
+}
+
+await main();
