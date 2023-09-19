@@ -2,23 +2,29 @@
   "name": "obsidian-repository-downloader",
   "version": "1.0.0",
   "description": "📩 Download every obsidian.md repository on GitHub",
-  "main": "index.js",
-  "type": "module",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "yarn node index.js"
+    "lint": "yarn tsc --noEmit && echo 'No errors found'",
+    "build": "yarn esbuild src/index.ts --bundle --platform=node | yarn node",
+    "start": "yarn lint && yarn ts-node --esm src/index.ts"
   },
   "author": "konhi <hello.konhi@gmail.com>",
   "license": "MIT",
   "packageManager": "yarn@3.6.3",
   "dependencies": {
+    "@tsconfig/recommended": "^1.0.3",
     "@types/cli-progress": "^3.11.2",
+    "@types/node": "^20.6.2",
     "@types/node-fetch": "^2.6.5",
     "@yarnpkg/sdks": "^3.0.0-rc.51",
     "cli-progress": "^3.12.0",
+    "esbuild": "^0.19.3",
     "eslint": "^8.49.0",
     "gitly": "^2.4.5",
     "node-fetch": "^3.3.2",
     "ora": "^7.0.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2"
   }
 }
