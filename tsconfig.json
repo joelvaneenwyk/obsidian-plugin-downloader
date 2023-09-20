@@ -1,6 +1,4 @@
 {
-  // This is an alias to @tsconfig/node16: https://github.com/tsconfig/bases
-  "extends": "@tsconfig/node16",
   // Most ts-node options can be specified here using their programmatic names.
   "ts-node": {
     // It is faster to skip typechecking.
@@ -14,7 +12,7 @@
     }
   },
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig to read more about this file */
+    // Visit https://aka.ms/tsconfig to read more about this file
     "module": "esnext",
     "moduleResolution": "node",
     "outDir": "dist",
@@ -22,30 +20,29 @@
     "target": "ES2017",
     "lib": [
       "ES5",
+      "WebWorker",
       "ES6"
-    ], /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "baseUrl": "./src/npm", /* Specify the base directory to resolve non-relative module names. */
-    "types": [
-      "node"
-    ],
-    "allowUmdGlobalAccess": true, /* Allow accessing UMD globals from modules. */
-    "allowJs": true, /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
-    "checkJs": true, /* Enable error reporting in type-checked JavaScript files. */
-    "sourceMap": true, /* Create source map files for emitted JavaScript files. */
-    "importHelpers": true, /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
-    "downlevelIteration": true, /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
-    "inlineSources": true, /* Include source code in the sourcemaps inside the emitted JavaScript. */
-    "isolatedModules": true, /* Ensure that each file can be safely transpiled without relying on other imports. */
-    "allowSyntheticDefaultImports": true, /* Allow 'import x from y' when a module doesn't have a default export. */
-    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
-    "strict": false, /* Enable all strict type-checking options. */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    ], // Specify a set of bundled library declaration files that describe the target runtime environment.
+    "baseUrl": "./src/npm", // Specify the base directory to resolve non-relative module names.
+    "allowUmdGlobalAccess": true,
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "inlineSources": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "src/npm/**/*"
   ],
   "exclude": [
+    ".yarn",
     "node_modules",
     "dist",
     "repositories",

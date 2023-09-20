@@ -1,5 +1,0 @@
-{
-  "Convention": "InPlaceOverwrite",
-  "ExcludeDirectories": [ "themes", "plugins" ],
-  "OmitSnippetLinks": true
-}
