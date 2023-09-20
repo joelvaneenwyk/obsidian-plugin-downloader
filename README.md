@@ -13,15 +13,15 @@
 <!-- toc -->
 ## Contents
 
-* [What?](#what)
-* [Why?](#why)
-* [Setup](#setup)
-* [Run](#run)
-* [Output Directories](#output-directories)
-* [Likely Questions](#likely-questions)
-* [Alternatives](#alternatives)
-* [🔨 Other Tools](#-other-tools)
-* [👾 Usage](#-usage)<!-- endToc -->
+  * [What?](#what)
+  * [Why?](#why)
+  * [Setup](#setup)
+  * [Run](#run)
+  * [Output Directories](#output-directories)
+  * [Likely Questions](#likely-questions)
+  * [Alternatives](#alternatives)
+  * [🔨 Other Tools](#-other-tools)
+  * [👾 Usage](#-usage)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/joelvaneenwyk/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/joelvaneenwyk/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
 
