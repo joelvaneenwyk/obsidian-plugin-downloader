@@ -23,4 +23,3 @@ cd tests
 # 2. Commit update usage.txt
 # 3. Push to github - a GitHub Action will then update the usage text in this README
 ```
-
