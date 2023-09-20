@@ -3,22 +3,24 @@
 <!-- toc -->
 ## Contents
 
-  * [What?](#what)
-  * [Why?](#why)
-  * [Setup](#setup)
-    * [Requirements](#requirements)
-    * [Download](#download)
-  * [Run](#run)
-    * [Getting Started](#getting-started)
-    * [Usage - all the arguments](#usage---all-the-arguments)
-  * [Output Directories](#output-directories)
-    * [Flatter Structure](#flatter-structure)
-    * [Grouped by User name](#grouped-by-user-name)
-  * [Likely Questions](#likely-questions)
-    * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
-    * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
-    * [What if there is an error?](#what-if-there-is-an-error)
-  * [Alternatives](#alternatives)<!-- endToc -->
+- [obsidian-repos-downloader](#obsidian-repos-downloader)
+  - [Contents](#contents)
+  - [What?](#what)
+  - [Why?](#why)
+  - [Setup](#setup)
+    - [Requirements](#requirements)
+    - [Download](#download)
+  - [Run](#run)
+    - [Getting Started](#getting-started)
+    - [Usage - all the arguments](#usage---all-the-arguments)
+  - [Output Directories](#output-directories)
+    - [Flatter Structure](#flatter-structure)
+    - [Grouped by User name](#grouped-by-user-name)
+  - [Likely Questions](#likely-questions)
+    - [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
+    - [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
+    - [What if there is an error?](#what-if-there-is-an-error)
+  - [Alternatives](#alternatives)
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
 
@@ -32,7 +34,6 @@ It inspects these files, and then downloads (clones) all the repos listed in the
 
 - [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
 - [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
-
 
 ## Why?
 
@@ -48,10 +49,10 @@ I cannot put it better than the author of the similar project [luckman212/**obsi
 
 ### Download
 
-1. Download the [Latest Release](https://github.com/claremacrae/obsidian-repos-downloader/releases). 
+1. Download the [Latest Release](https://github.com/claremacrae/obsidian-repos-downloader/releases).
    - Choose one of:
        - "Source code (zip)"
-       - "Source code (tar.gz)" 
+       - "Source code (tar.gz)"
    - If you can't see them, click to expand the "Assets"
 2. Expand the downloaded Source Code file
    - This will give you a folder name such as "obsidian-repos-downloader-0.1.0"
@@ -73,7 +74,6 @@ python3 obsidian-repos-downloader.py
 ### Usage - all the arguments
 
 Running `obsidian-repos-downloader.py --help` gives this output:
-
 
 <!-- snippet: usage.txt -->
 ```txt
@@ -131,7 +131,7 @@ For example, running this command (limiting the output to only 4 repositories, f
 obsidian-repos-downloader.py  --limit 4
 ```
 
-... gives this directory structure: 
+... gives this directory structure:
 
 <!-- snippet: tree-output-ungrouped.txt -->
 ```txt
@@ -150,8 +150,6 @@ themes
 ```
 <!-- endSnippet -->
 
-
-
 ### Grouped by User name
 
 When the argument `--group-by-user` is supplied, all the downloaded repos are placed in sub-directories
@@ -163,7 +161,7 @@ For example, running this command (limiting the output to only 4 repositories, f
 obsidian-repos-downloader.py  --limit 4 --group-by-user
 ```
 
-... gives this directory structure: 
+... gives this directory structure:
 
 <!-- snippet: tree-output-grouped.txt -->
 ```txt
@@ -208,13 +206,13 @@ The easiest way to deal with such errors is to delete the downloaded repo, and r
 
 Example error output:
 
-```
+```log
 The following errors occurred:
 updating Slowbad/obsidian-solarized
 command:    git pull --quiet
 in:         /Users/clare/obsidian-repos-downloader/themes/Slowbad-obsidian-solarized
 exit code:  1
-stdout:     
+stdout:
 stderr:     Your configuration specifies to merge with the ref 'refs/heads/master'
 from the remote, but no such ref was fetched.
 
@@ -226,9 +224,9 @@ from the remote, but no such ref was fetched.
 There is a growing number of alternative mechanisms for downloading Obsidian repos:
 
 - [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
-    - Requires Node
-    - Downloads plugins only
+  - Requires Node
+  - Downloads plugins only
 - [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader)
-    - Written in bash, and a number of other freely-downloadable tools
-    - You use a console GUI each run, to search and control which repos to download  
-    - Downloads plugins only
+  - Written in bash, and a number of other freely-downloadable tools
+  - You use a console GUI each run, to search and control which repos to download
+  - Downloads plugins only
