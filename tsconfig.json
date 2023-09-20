@@ -1,0 +1,51 @@
+{
+  // Most ts-node options can be specified here using their programmatic names.
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      // compilerOptions specified here will override those declared below,
+      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
+      // different options with a single tsconfig.json.
+    }
+  },
+  "compilerOptions": {
+    // Visit https://aka.ms/tsconfig to read more about this file
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDir": "./src/npm",
+    "target": "ES2017",
+    "lib": [
+      "ES5",
+      "WebWorker",
+      "ES6"
+    ], // Specify a set of bundled library declaration files that describe the target runtime environment.
+    "baseUrl": "./src/npm", // Specify the base directory to resolve non-relative module names.
+    "allowUmdGlobalAccess": true,
+    "allowJs": true,
+    "checkJs": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "inlineSources": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/npm/**/*"
+  ],
+  "exclude": [
+    ".yarn",
+    "node_modules",
+    "dist",
+    "repositories",
+    "themes"
+  ]
+}

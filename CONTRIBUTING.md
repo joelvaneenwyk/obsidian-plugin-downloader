@@ -1,10 +1,8 @@
 # Contributing
 
-Thank you. Contributions are welcome, via
-[Issues](https://github.com/claremacrae/obsidian-repos-downloader/issues) or
-[Pull-Requests](https://github.com/claremacrae/obsidian-repos-downloader/pulls).
+Contributions are welcome, via either [Issues](https://github.com/joelvaneenwyk/obsidian-repos-downloader/issues) or [Pull-Requests](https://github.com/joelvaneenwyk/obsidian-repos-downloader/pulls).
 
-Please check if someone else has made the same suggestion first. Thank you.
+Before contributing, check if someone else has made the same suggestion first.
 
 ## Maintenance notes
 
@@ -12,7 +10,7 @@ Please check if someone else has made the same suggestion first. Thank you.
 
 The table of contents is updated automatically by a GitHub Action, on every push to GitHub.
 
-### Almost-automated updating of usage 
+### Almost-automated updating of usage
 
 The above usage is updated automatically, on push, whenever `tests/usage.txt` is changed.
 

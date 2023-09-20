@@ -1,5 +1,10 @@
 {
+  "$schema": "https://raw.githubusercontent.com/SimonCropp/MarkdownSnippets/master/schema.json",
   "Convention": "InPlaceOverwrite",
-  "ExcludeDirectories": [ "themes", "plugins" ],
+  "MaxWidth": 100,
+  "TocExcludes": [],
+  "TocLevel": 1,
+  "ValidateContent": false,
+  "ExcludeDirectories": [ "themes", "plugins", ".git", ".yarn", "node_modules", "dist" ],
   "OmitSnippetLinks": true
 }

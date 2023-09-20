@@ -1,4 +1,14 @@
-# obsidian-repos-downloader
+# 📩 Obsidian Repositories Downloader
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/61631665/132124154-58db4b3d-e19f-4f71-844c-5aefc0917b15.gif"/>
+  <p>Learn, analyze and inspire from every <a href="https://obsidian.md">obsidian.md</a> plugin! Downloads every available Obsidian plugin (<1GB).</p>
+  <img src="https://user-images.githubusercontent.com/61631665/131258921-9960bad9-4b76-434e-9b30-cd9cf14cb683.png"/>
+  🔎 This allows to easily search and analyze other plugins. It's especially useful as Obsidian API isn't yet documented and GitHub search doesn't work as expected.
+
+  <img src="https://user-images.githubusercontent.com/61631665/131258790-2499b1d7-50fe-4b9a-abde-0f00d6d08b17.png"/>
+    🌳 Generates a nice tree structure!
+</div>
 
 <!-- toc -->
 ## Contents
@@ -6,21 +16,14 @@
   * [What?](#what)
   * [Why?](#why)
   * [Setup](#setup)
-    * [Requirements](#requirements)
-    * [Download](#download)
   * [Run](#run)
-    * [Getting Started](#getting-started)
-    * [Usage - all the arguments](#usage---all-the-arguments)
   * [Output Directories](#output-directories)
-    * [Flatter Structure](#flatter-structure)
-    * [Grouped by User name](#grouped-by-user-name)
   * [Likely Questions](#likely-questions)
-    * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
-    * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
-    * [What if there is an error?](#what-if-there-is-an-error)
-  * [Alternatives](#alternatives)<!-- endToc -->
+  * [Alternatives](#alternatives)
+  * [🔨 Other Tools](#-other-tools)
+  * [👾 Usage](#-usage)<!-- endToc -->
 
-[![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
+[![on-push-do-doco](https://github.com/joelvaneenwyk/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/joelvaneenwyk/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
 
 ## What?
 
@@ -30,9 +33,8 @@ This is a Python3 script to download a local copy of all the [published communit
 
 It inspects these files, and then downloads (clones) all the repos listed in them:
 
-- [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
-- [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
-
+* [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
+* [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
 
 ## Why?
 
@@ -44,17 +46,17 @@ I cannot put it better than the author of the similar project [luckman212/**obsi
 
 ### Requirements
 
-- Python 3.6 or above
+* Python 3.6 or above
 
 ### Download
 
-1. Download the [Latest Release](https://github.com/claremacrae/obsidian-repos-downloader/releases). 
-   - Choose one of:
-       - "Source code (zip)"
-       - "Source code (tar.gz)" 
-   - If you can't see them, click to expand the "Assets"
+1. Download the [Latest Release](https://github.com/joelvaneenwyk/obsidian-repos-downloader/releases).
+   * Choose one of:
+       * "Source code (zip)"
+       * "Source code (tar.gz)"
+   * If you can't see them, click to expand the "Assets"
 2. Expand the downloaded Source Code file
-   - This will give you a folder name such as "obsidian-repos-downloader-0.1.0"
+   * This will give you a folder name such as "obsidian-repos-downloader-0.1.0"
 
 ## Run
 
@@ -73,7 +75,6 @@ python3 obsidian-repos-downloader.py
 ### Usage - all the arguments
 
 Running `obsidian-repos-downloader.py --help` gives this output:
-
 
 <!-- snippet: usage.txt -->
 ```txt
@@ -131,7 +132,7 @@ For example, running this command (limiting the output to only 4 repositories, f
 obsidian-repos-downloader.py  --limit 4
 ```
 
-... gives this directory structure: 
+... gives this directory structure:
 
 <!-- snippet: tree-output-ungrouped.txt -->
 ```txt
@@ -150,8 +151,6 @@ themes
 ```
 <!-- endSnippet -->
 
-
-
 ### Grouped by User name
 
 When the argument `--group-by-user` is supplied, all the downloaded repos are placed in sub-directories
@@ -163,7 +162,7 @@ For example, running this command (limiting the output to only 4 repositories, f
 obsidian-repos-downloader.py  --limit 4 --group-by-user
 ```
 
-... gives this directory structure: 
+... gives this directory structure:
 
 <!-- snippet: tree-output-grouped.txt -->
 ```txt
@@ -214,7 +213,7 @@ updating Slowbad/obsidian-solarized
 command:    git pull --quiet
 in:         /Users/clare/obsidian-repos-downloader/themes/Slowbad-obsidian-solarized
 exit code:  1
-stdout:     
+stdout:
 stderr:     Your configuration specifies to merge with the ref 'refs/heads/master'
 from the remote, but no such ref was fetched.
 
@@ -225,10 +224,26 @@ from the remote, but no such ref was fetched.
 
 There is a growing number of alternative mechanisms for downloading Obsidian repos:
 
-- [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
-    - Requires Node
-    - Downloads plugins only
-- [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader)
-    - Written in bash, and a number of other freely-downloadable tools
-    - You use a console GUI each run, to search and control which repos to download  
-    - Downloads plugins only
+* [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
+  * Requires Node
+  * Downloads plugins only
+* [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader)
+  * Written in bash, and a number of other freely-downloadable tools
+  * You use a console GUI each run, to search and control which repos to download
+  * Downloads plugins only
+
+## 🔨 Other Tools
+
+* [Everything](https://www.voidtools.com/): advanced search
+* [obsidian-plugin-downloader](https://github.com/luckman212/obsidian-plugin-downloader): similiar tool written in Shell
+
+## 👾 Usage
+
+```bash
+git clone https://github.com/konhi/obsidian-repositories-downloader.git
+cd obsidian-repositories-downloader
+npm start
+```
+
+* Tested with `node v12.22.7`.
+* In case of any problems, you may try updating your nodejs version to newest. ([see this issue](https://github.com/konhi/obsidian-repositories-downloader/issues/2)). You may also try using [this shell tool](https://github.com/luckman212/obsidian-plugin-downloader).

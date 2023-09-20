@@ -5,11 +5,9 @@ import sys
 import argparse
 import subprocess
 
-from utils import (
-    get_json_from_github
-)
-from utils import PLUGINS_JSON_FILE, THEMES_JSON_FILE
-from dirutils import use_directory, readable_dir
+from utils.json import (
+    get_json_from_github, PLUGINS_JSON_FILE, THEMES_JSON_FILE)
+from utils.directories import use_directory, readable_dir
 
 
 class DownloaderOptions:
@@ -65,25 +63,25 @@ class DownloaderOptions:
         self.args = self.parser.parse_args(argv)
 
     def limit(self):
-        return self.args.limit
+        return self.args.limit  # type: ignore
 
     def dry_run(self):
-        return self.args.dry_run
+        return self.args.dry_run  # type: ignore
 
     def need_to_download_type(self, type):
-        return self.args.type in ["all", type]
+        return self.args.type in ["all", type]  # type: ignore
 
     def root_output_directory(self):
-        return self.args.output_directory
+        return self.args.output_directory  # type: ignore
 
     def repo_output_directory(self, user):
-        if self.args.group_by_user:
+        if self.args.group_by_user:  # type: ignore
             return user
         else:
             return '.'
 
     def repo_output_name(self, user, repo):
-        if self.args.group_by_user:
+        if self.args.group_by_user:  # type: ignore
             return repo
         else:
             # Prefix with username, in case there are any duplicated repo names
@@ -133,9 +131,6 @@ class Downloader:
         repo = plugin.get("repo")
         branch = plugin.get("branch", "master")
         user, repo_name = repo.split("/")
-        # if user != 'Slowbad':
-        #     print('Skipping user')
-        #     return
         directory_for_repo = self.options.repo_output_directory(user)
         with use_directory(directory_for_repo, create_if_missing=True):
             repo_output_name = self.options.repo_output_name(user, repo_name)
@@ -163,7 +158,7 @@ class Downloader:
     def get_download_command(self, repo, repo_output_name):
         url = f'https://github.com/{repo}'
         print(url)
-        command = f"git clone --quiet {url}.git {repo_output_name}"
+        command = f"git clone --recurse-submodules -j8 --quiet {url}.git {repo_output_name}"
         return command
 
     def get_clone_command(self):
