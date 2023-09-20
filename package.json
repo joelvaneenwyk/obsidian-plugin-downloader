@@ -2,7 +2,7 @@
   "name": "obsidian-repository-downloader",
   "version": "1.0.0",
   "description": "📩 Download every obsidian.md repository on GitHub",
-  "main": "src/index.ts",
+  "main": "src/npm/index.ts",
   "scripts": {
     "lint": "yarn tsc --skipLibCheck --noEmit && echo 'No errors found'",
     "build": "yarn tsc",
