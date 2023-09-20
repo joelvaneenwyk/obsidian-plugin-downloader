@@ -346,6 +346,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node16@npm:^16.1.1":
+  version: 16.1.1
+  resolution: "@tsconfig/node16@npm:16.1.1"
+  checksum: 26d83db06866083b543e73eda33585464362fd0835229b9a5b1185f0353b9b5db9ca4f66a4be53d4ec5d4c219be42b0a7582f8bcc7268f2f77b1c643375e490f
+  languageName: node
+  linkType: hard
+
 "@tsconfig/recommended@npm:^1.0.3":
   version: 1.0.3
   resolution: "@tsconfig/recommended@npm:1.0.3"
@@ -1851,6 +1858,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "obsidian-repository-downloader@workspace:."
   dependencies:
+    "@tsconfig/node16": ^16.1.1
     "@tsconfig/recommended": ^1.0.3
     "@types/cli-progress": ^3.11.2
     "@types/node": ^20.6.2

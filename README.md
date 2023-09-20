@@ -1,9 +1,19 @@
-# Obsidian Source Downloader
+# 📩 Obsidian Repositories Downloader
+
+<div align='center'>
+  <img src="https://user-images.githubusercontent.com/61631665/132124154-58db4b3d-e19f-4f71-844c-5aefc0917b15.gif"/>
+  <p>Learn, analyze and inspire from every <a href="https://obsidian.md">obsidian.md</a> plugin! Downloads every available Obsidian plugin (<1GB).</p>
+  <img src="https://user-images.githubusercontent.com/61631665/131258921-9960bad9-4b76-434e-9b30-cd9cf14cb683.png"/>
+  🔎 This allows to easily search and analyze other plugins. It's especially useful as Obsidian API isn't yet documented and GitHub search doesn't work as expected.
+
+  <img src="https://user-images.githubusercontent.com/61631665/131258790-2499b1d7-50fe-4b9a-abde-0f00d6d08b17.png"/>
+    🌳 Generates a nice tree structure!
+</div>
 
 <!-- toc -->
 ## Contents
 
-- [Obsidian Source Downloader](#obsidian-source-downloader)
+- [📩 Obsidian Repositories Downloader](#-obsidian-repositories-downloader)
   - [Contents](#contents)
   - [What?](#what)
   - [Why?](#why)
@@ -21,6 +31,8 @@
     - [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
     - [What if there is an error?](#what-if-there-is-an-error)
   - [Alternatives](#alternatives)
+  - [🔨 Other Tools](#-other-tools)
+  - [👾 Usage](#-usage)
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
 
@@ -34,7 +46,6 @@ It inspects these files, and then downloads (clones) all the repos listed in the
 
 - [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
 - [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
-
 
 ## Why?
 
@@ -75,7 +86,6 @@ python3 obsidian-repos-downloader.py
 ### Usage - all the arguments
 
 Running `obsidian-repos-downloader.py --help` gives this output:
-
 
 <!-- snippet: usage.txt -->
 ```txt
@@ -152,8 +162,6 @@ themes
 ```
 <!-- endSnippet -->
 
-
-
 ### Grouped by User name
 
 When the argument `--group-by-user` is supplied, all the downloaded repos are placed in sub-directories
@@ -228,9 +236,25 @@ from the remote, but no such ref was fetched.
 There is a growing number of alternative mechanisms for downloading Obsidian repos:
 
 - [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
-    - Requires Node
-    - Downloads plugins only
+  - Requires Node
+  - Downloads plugins only
 - [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader)
-    - Written in bash, and a number of other freely-downloadable tools
-    - You use a console GUI each run, to search and control which repos to download
-    - Downloads plugins only
+  - Written in bash, and a number of other freely-downloadable tools
+  - You use a console GUI each run, to search and control which repos to download
+  - Downloads plugins only
+
+## 🔨 Other Tools
+
+- [Everything](https://www.voidtools.com/): advanced search
+- [obsidian-plugin-downloader](https://github.com/luckman212/obsidian-plugin-downloader): similiar tool written in Shell
+
+## 👾 Usage
+
+```bash
+git clone https://github.com/konhi/obsidian-repositories-downloader.git
+cd obsidian-repositories-downloader
+npm start
+```
+
+- Tested with `node v12.22.7`.
+- In case of any problems, you may try updating your nodejs version to newest. ([see this issue](https://github.com/konhi/obsidian-repositories-downloader/issues/2)). You may also try using [this shell tool](https://github.com/luckman212/obsidian-plugin-downloader).
