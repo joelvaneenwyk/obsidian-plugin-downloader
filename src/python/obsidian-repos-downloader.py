@@ -63,25 +63,25 @@ class DownloaderOptions:
         self.args = self.parser.parse_args(argv)
 
     def limit(self):
-        return self.args.limit
+        return self.args.limit  # type: ignore
 
     def dry_run(self):
-        return self.args.dry_run
+        return self.args.dry_run  # type: ignore
 
     def need_to_download_type(self, type):
-        return self.args.type in ["all", type]
+        return self.args.type in ["all", type]  # type: ignore
 
     def root_output_directory(self):
-        return self.args.output_directory
+        return self.args.output_directory  # type: ignore
 
     def repo_output_directory(self, user):
-        if self.args.group_by_user:
+        if self.args.group_by_user:  # type: ignore
             return user
         else:
             return '.'
 
     def repo_output_name(self, user, repo):
-        if self.args.group_by_user:
+        if self.args.group_by_user:  # type: ignore
             return repo
         else:
             # Prefix with username, in case there are any duplicated repo names
