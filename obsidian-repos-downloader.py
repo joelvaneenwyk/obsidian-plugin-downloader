@@ -133,9 +133,6 @@ class Downloader:
         repo = plugin.get("repo")
         branch = plugin.get("branch", "master")
         user, repo_name = repo.split("/")
-        # if user != 'Slowbad':
-        #     print('Skipping user')
-        #     return
         directory_for_repo = self.options.repo_output_directory(user)
         with use_directory(directory_for_repo, create_if_missing=True):
             repo_output_name = self.options.repo_output_name(user, repo_name)
@@ -163,7 +160,7 @@ class Downloader:
     def get_download_command(self, repo, repo_output_name):
         url = f'https://github.com/{repo}'
         print(url)
-        command = f"git clone --quiet {url}.git {repo_output_name}"
+        command = f"git clone --recurse-submodules -j8 --quiet {url}.git {repo_output_name}"
         return command
 
     def get_clone_command(self):
