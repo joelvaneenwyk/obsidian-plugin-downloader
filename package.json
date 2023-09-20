@@ -5,10 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "lint": "yarn tsc --skipLibCheck --noEmit && echo 'No errors found'",
-    "build": "yarn build:main && yarn build:worker",
-    "build:main": "yarn esbuild --out-extension:.js=.mjs src/index.ts --target=es2022 --bundle --platform=node --outdir=dist",
-    "build:worker": "yarn esbuild src/worker.ts --target=es2022 --bundle --platform=node --outdir=dist",
-    "download": "yarn build && yarn node dist/index.mjs",
+    "build": "yarn tsc",
+    "download": "yarn build && yarn node dist/index.js",
     "start": "yarn lint && yarn download"
   },
   "type": "module",
