@@ -8,18 +8,18 @@ import os
 #   - And an underscore in directory_utils.py was inconsistent with existing filenames
 
 
-pushstack = list()
+push_stack = list()
 
 
-def pushdir(dirname: str):
-    global pushstack
-    pushstack.append(os.getcwd())
+def push_dir(dirname: str):
+    global push_stack
+    push_stack.append(os.getcwd())
     os.chdir(dirname)
 
 
-def popdir():
-    global pushstack
-    os.chdir(pushstack.pop())
+def pop_dir():
+    global push_stack
+    os.chdir(push_stack.pop())
 
 
 def use_directory(dir, create_if_missing):
@@ -28,10 +28,10 @@ def use_directory(dir, create_if_missing):
             self.dir = dir
 
         def __enter__(self):
-            pushdir(dir)
+            push_dir(dir)
 
         def __exit__(self, exc_type, exc_val, exc_tb):
-            popdir()
+            pop_dir()
 
     if create_if_missing:
         os.makedirs(dir, exist_ok=True)

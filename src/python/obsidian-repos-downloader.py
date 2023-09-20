@@ -5,9 +5,9 @@ import sys
 import argparse
 import subprocess
 
-from .utils import (
+from utils.json import (
     get_json_from_github, PLUGINS_JSON_FILE, THEMES_JSON_FILE)
-from .dirutils import use_directory, readable_dir
+from utils.directories import use_directory, readable_dir
 
 
 class DownloaderOptions:
